@@ -17,7 +17,7 @@ namespace Sirtana
             Random random = new Random();
 
             //Lecture du fichier
-            string[] answerData= File.ReadAllLines("answers.csv");
+            string[] answerData= File.ReadAllLines("../../../data/answers.csv");
 
             //Conversion du CSV en enlevant la première colonne qui numérote
             for (int i= 0; i< answerData.Length;i++)
