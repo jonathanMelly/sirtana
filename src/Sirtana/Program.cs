@@ -3,6 +3,7 @@
 //Lieu: ETML
 //Description: Version de base pour Sirtana
 using System;
+using System.IO;
 
 namespace Sirtana
 {
@@ -14,6 +15,16 @@ namespace Sirtana
         static void Main(string[] args)
         {
             Random random = new Random();
+
+            //Lecture du fichier
+            string[] answerData= File.ReadAllLines("answers.csv");
+
+            //Conversion du CSV en enlevant la première colonne qui numérote
+            for (int i= 0; i< answerData.Length;i++)
+            {
+                //Remplacement avec uniquement le message
+                answerData[i] = answerData[i].Split(';')[1];
+            }
 
             //Programme inifini
             while (true)
@@ -27,18 +38,10 @@ namespace Sirtana
                 if (question.Contains("?"))
                 {
                     //On prend au hasard
-                    int randomNumber = random.Next(3);
+                    int randomNumber = random.Next(answerData.Length);
 
-                    //Premier cas
-                    if (randomNumber == 0)
-                        answer = "C'est une bonne question et je ne suis pas certain d'avoir la réponse";
-
-                    //Deuxième cas
-                    else if (randomNumber == 1)
-                        answer = "Je comprends votre interrogation et vais y réfléchir";
-                    //Dernier cas
-                    else
-                        answer = "Je ne sais pas";
+                    answer = answerData[randomNumber];
+                    
                 }
                 //Mauvais format
                 else
