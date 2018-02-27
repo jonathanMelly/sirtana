@@ -3,7 +3,6 @@
 //Lieu: ETML
 //Description: Version de base pour Sirtana
 using System;
-using System.IO;
 
 namespace Sirtana
 {
@@ -14,41 +13,21 @@ namespace Sirtana
     {
         static void Main(string[] args)
         {
-            Random random = new Random();
+            Console.WriteLine("Bienvenue cher voyageur, je suis le drone Sirtana et attend votre question\n");
 
-            //Lecture du fichier
-            string[] answerData= File.ReadAllLines("../../../data/answers.csv");
+            //Création d'un drone parlant
+            Drone drone = new Drone();
 
-            //Conversion du CSV en enlevant la première colonne qui numérote
-            for (int i= 0; i< answerData.Length;i++)
-            {
-                //Remplacement avec uniquement le message
-                answerData[i] = answerData[i].Split(';')[1];
-            }
-
-            //Programme inifini
+            //Programme infini
             while (true)
             {
-                Console.WriteLine("Quelle est votre question ?");
-
+                //Question de l'utilisateur
+                Console.Write("Question: ");
                 string question = Console.ReadLine();
-                string answer = "";
 
-                //Vérification du format
-                if (question.Contains("?"))
-                {
-                    //On prend au hasard
-                    int randomNumber = random.Next(answerData.Length);
-
-                    answer = answerData[randomNumber];
-                    
-                }
-                //Mauvais format
-                else
-                    answer = "Veuiller poser une question en terminant avec un ?";
-
-                //Affichage de la réponse
-                Console.WriteLine(answer);
+                //Réponse du drone
+                string answer = drone.Answer(question);
+                Console.WriteLine("Réponse: "+answer);
             }
         }
     }
