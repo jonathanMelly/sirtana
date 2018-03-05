@@ -46,8 +46,8 @@ namespace Sirtana
                 //TODO : notifier les observateurs qu'une question valide a été posée
 
                 //On prend au hasard
+                //TODO : remplacer par la factory pour obtenir une réponse...
                 int randomNumber = random.Next(answerData.Length);
-
                 answer = answerData[randomNumber];
 
                 //TODO : notifier les observateurs qu'une réponse a été donnée
