@@ -1,2 +1,2 @@
 # sirtana
-useless textual bot
+Simple demonstration of a talking drone...
