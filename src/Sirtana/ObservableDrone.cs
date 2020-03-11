@@ -1,22 +1,22 @@
-﻿//Auteur: JMY
+﻿//Author: JMY
 //Date: 15.02.2018
-//Lieu: ETML
-//Description: Version de base pour Sirtana
+//Place: ETML
+//Description: Base version for Sirtana
 
 namespace Sirtana
 {
     /// <summary>
-    /// Structure de base pour observer un drone avec 2 évènements possibles
+    /// Base structure to observe a drone with 2 events
     /// </summary>
     public abstract class ObservableDrone
     {
         public enum NOTIFICATION_TYPE  {QUESTION,ANSWER};
 
-        //Observateur unique : TODO supporter plusieurs observateurs
+        //Unique observer : TODO support multiple observers
         private DroneObserver observer;
 
         /// <summary>
-        /// Affectation de l'observateur (1 seul pour l'instant)
+        /// Set observer (only one for now)
         /// </summary>
         /// <param name="observer"></param>
         public void SetObserver(DroneObserver observer)
@@ -25,10 +25,10 @@ namespace Sirtana
         }
 
         /// <summary>
-        /// Lance la notification à l'observateur
+        /// Notify observer
         /// </summary>
-        /// <param name="content">contenu du message</param>
-        /// <param name="type">type de notification</param>
+        /// <param name="content">message content</param>
+        /// <param name="type">notification type</param>
         protected void NotifyObserver(string content, NOTIFICATION_TYPE type)
         {
             switch(type)
