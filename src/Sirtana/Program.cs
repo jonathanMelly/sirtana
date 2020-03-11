@@ -1,13 +1,13 @@
-﻿//Auteur: JMY
+﻿//Author: JMY
 //Date: 15.02.2018
-//Lieu: ETML
-//Description: Version de base pour Sirtana
+//Place: ETML
+//Description: Base version for Sirtana
 using System;
 
 namespace Sirtana
 {
     /// <summary>
-    /// Version simplifiée de sirtana (assistant textuel inutile) en programmation procédurale
+    /// Simplified version of sirtana (useless text assistant)
     /// </summary>
     class Program
     {
@@ -15,17 +15,17 @@ namespace Sirtana
         {
             Console.WriteLine("Bienvenue cher voyageur, je suis le drone Sirtana et attend votre question\n");
 
-            //Création d'un drone parlant
+            //Speaking drone
             Drone drone = new Drone();
 
-            //Programme infini
+            //Main loop (infinite)
             while (true)
             {
-                //Question de l'utilisateur
+                //User's question
                 Console.Write("Question: ");
                 string question = Console.ReadLine();
 
-                //Réponse du drone
+                //Drone's answer
                 string answer = drone.Answer(question);
                 Console.WriteLine("Réponse: "+answer);
             }
